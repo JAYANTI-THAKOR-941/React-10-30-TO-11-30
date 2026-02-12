@@ -1,0 +1,32 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    margin: 0 20px;
+}
+.btns button,.counter button{
+    padding: 12px 28px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+.counter button{
+    background-color: black;
+    color: white;
+}
+.counter{
+    display: flex;
+    margin: 4% auto;
+    align-items: center;
+    gap: 25px;
+
+}
