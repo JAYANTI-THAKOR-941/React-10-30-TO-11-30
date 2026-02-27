@@ -1,30 +1,18 @@
-import { useEffect, useState } from "react";
-import UserList from "./components/UserList";
-import withLoading from "./components/withLoading";
-import ProductPage from "./pages/ProductPage";
-
+import { useState } from "react";
+import withAuth from "./components/withAuth";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 
 const App = ()=>{
 
-  const UserComponent = withLoading(UserList);
+  const [isLogin,setLogin] = useState(false);
 
-  const [users,setUsers] = useState([]);
-
-  const [loading,setLoading] = useState(true);
-
-  useEffect(()=>{
-
-    setTimeout(()=>{
-        setUsers(["Himanshu","Arif","Anish","Aditya","Smit"]);
-        setLoading(false);
-    },5000)
-
-  },[])
+  const MyDashboard = withAuth(Dashboard);
 
   return(
     <>
-      <UserComponent isLoading={loading}  users={users} />
-      <ProductPage/>
+      <Login onLogin={()=>setLogin(true)}/>
+      <MyDashboard islogin={isLogin} onLogout={()=>setLogin(false)} />
     </>
   )
 }
